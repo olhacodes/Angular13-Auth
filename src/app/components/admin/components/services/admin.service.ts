@@ -6,6 +6,7 @@ import { User } from '../user';
 @Injectable({
     providedIn: 'root'
 })
+    
 export class AdminService {
 
     constructor(private http: HttpClient) { }
@@ -19,3 +20,4 @@ export class AdminService {
     }
 
 }
+ 

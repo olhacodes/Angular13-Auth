@@ -11,9 +11,10 @@ const routes: Routes = [
     path: '', component: AdminDashboardComponent,
     children: [
       { path: 'contacts', component: ContactsComponent },
-      { path: 'contacts/user/:id', component: ContactsDetailsComponent },
+      { path: 'contacts/user/:id', component: ContactsDetailsComponent},
+      { path: 'contacts/user', redirectTo: 'contacts', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      {path: '', redirectTo: 'home', pathMatch: 'full'}
+      { path: '', redirectTo: 'home', pathMatch: 'full'}
   ]}
 ]
 
