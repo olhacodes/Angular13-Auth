@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
