@@ -30,4 +30,8 @@ export class AuthService {
         return throwError(() => new Error('Failed Login'))
     }
 
+    logout() {
+        this.route.navigate(['login'])
+    }
+
 }

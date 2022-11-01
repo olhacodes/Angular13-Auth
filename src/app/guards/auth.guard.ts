@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
 
   constructor(
     private router: Router,
@@ -24,11 +24,15 @@ export class AuthGuard implements CanActivate {
     return true
   }
 
-  canDeactive(
+  canDeactivate(
     component: unknown,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return false;
+    if (confirm('Are you sure you want to logout?')) {
+      localStorage.removeItem('token')
+      return true
+    }
+    return false
   }
 }
