@@ -13,12 +13,12 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup 
 
   constructor(
-    private authservice: AuthService,
+    private authService: AuthService,
     private router: Router,
   ) { }
 
   submitLogin() {
-    this.authservice.login(this.loginForm.value).subscribe({
+    this.authService.login(this.loginForm.value).subscribe({
       next: () => this.router.navigate(['admin']),
       error: (err) => alert(err.message)
     })
@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
         Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
     ])
     })
+    if (this.authService.isLoggedIn()) { 
+       this.router.navigate(['admin'])
   }
-
+  }
 }
