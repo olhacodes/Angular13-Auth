@@ -22,10 +22,11 @@
                 <input formControlName="password" type="password" id="typePasswordX"
                   class="form-control form-control-lg" />
                 <label class="form-label" for="typePasswordX">Password</label>
-                <p><small
-                    class="text-danger">Password is required (min. length = 8)</small></p>
+                <p *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched">
+                  <small class="text-danger">Password is required (min. length = 8)</small>
+                </p>
               </div>
-              <button class="btn btn-outline-light btn-lg px-5"
+              <button [disabled]="loginForm.invalid" class="btn btn-outline-light btn-lg px-5"
                 type="submit">Login</button>
             </form>
           </div>
